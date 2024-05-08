@@ -221,7 +221,7 @@ def gen_graph(df):
 
 
 def main(my_dict):
-    dataframe = query_generation(my_dict, "https://kg_lc:8890/sparql")
+    dataframe = query_generation(my_dict, "http://kg_lc:8890/sparql")
     exp = interpretation('./app/files/lime_interpretation_features.csv',
                          './app/files/predicition_probabilities.csv', my_dict)
     return dataframe, exp
@@ -234,16 +234,16 @@ def ChangeButtonColour(widget_label, font_color, hover_color, background_color='
     htmlstr = f"""
         <script>
             var elements = window.parent.document.querySelectorAll('button');
-            for (var i = 0; i < elements.length; ++i) {{ 
-                if (elements[i].innerText == '{widget_label}') {{ 
+            for (var i = 0; i < elements.length; ++i) {{
+                if (elements[i].innerText == '{widget_label}') {{
                     elements[i].style.color ='{font_color}';
                     elements[i].style.background = '{background_color}';
                     elements[i].style.width = '{width}px';
-                    elements[i].onmouseover = function() {{ 
+                    elements[i].onmouseover = function() {{
                         this.style.color = '{hover_color}';
                         this.style.borderColor = '{hover_color}';
                     }};
-                    elements[i].onmouseout = function() {{ 
+                    elements[i].onmouseout = function() {{
                         this.style.color = '{font_color}';
                         this.style.borderColor = '{border}';
                     }};

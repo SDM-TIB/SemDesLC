@@ -1,12 +1,25 @@
 import pandas as pd
 from scipy import stats
-from InterpretME import federated
+from DeTrusty import run_query
+from DeTrusty.Molecule.MTManager import Config
 from matplotlib import pyplot as plt
 import seaborn as sns
 import plotly.graph_objects as go
 import streamlit as st
 from streamlit.components.v1 import html
 from SPARQLWrapper import SPARQLWrapper, JSON
+
+def federated(query):
+    query_result = run_query(query, config=Config(), join_stars_locally=False)
+    columns = query_result['head']['vars']
+    df_result = pd.DataFrame(columns=columns)
+    cardinality = 0
+    for res in query_result['results']['bindings']:
+        df_result.loc[cardinality] = [res[var]['value'] for var in columns]
+        cardinality += 1
+
+    return df_result
+
 
 def vis(result, patient_num, feature_num):
     result['feature'] = result['feature'].str.replace(r'%.*', '', regex=True)
@@ -242,7 +255,7 @@ def query_generation(input_data, endpoint1, endpoint2):
 def main(my_dict):
     flattened_values = [item for sublist in my_dict.values() for item in
                         (sublist if isinstance(sublist, list) else [sublist])]
-    res, num, feature_num = query_generation(flattened_values, "https://https://kg_lc:8890/sparql", "https://kg_semdeslc:8890/sparql")
+    res, num, feature_num = query_generation(flattened_values, "http://kg_lc:8890/sparql", "http://kg_semdeslc:8890/sparql")
     return res, num, feature_num
 
 
@@ -252,16 +265,16 @@ def ChangeButtonColour(widget_label, font_color, hover_color, background_color='
     htmlstr = f"""
         <script>
             var elements = window.parent.document.querySelectorAll('button');
-            for (var i = 0; i < elements.length; ++i) {{ 
-                if (elements[i].innerText == '{widget_label}') {{ 
+            for (var i = 0; i < elements.length; ++i) {{
+                if (elements[i].innerText == '{widget_label}') {{
                     elements[i].style.color ='{font_color}';
                     elements[i].style.background = '{background_color}';
                     elements[i].style.width = '{width}px';
-                    elements[i].onmouseover = function() {{ 
+                    elements[i].onmouseover = function() {{
                         this.style.color = '{hover_color}';
                         this.style.borderColor = '{hover_color}';
                     }};
-                    elements[i].onmouseout = function() {{ 
+                    elements[i].onmouseout = function() {{
                         this.style.color = '{font_color}';
                         this.style.borderColor = '{border}';
                     }};

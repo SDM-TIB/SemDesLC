@@ -77,10 +77,6 @@ def main_rulesHead(my_dict):
     # my_dict = read_json("input/input-file-Rules.json")
     df = pd.DataFrame.from_dict(data_dict)
     head_pred, head_obj = extractHead(my_dict, df)
-    head, val = query_generation(head_obj, "https://kg_lc:8890/sparql")
+    head, val = query_generation(head_obj, "http://kg_lc:8890/sparql")
     res = createTable(head_pred, head, val)
     return res, my_dict
-
-
-
-
