@@ -4,8 +4,6 @@ services:
   kg_lc:
     container_name: kg_lc
     image: prohde/virtuoso-opensource-7:7.2.11
-    ports:
-      - "8891:8890"
     volumes:
       - ./experiments_kg_builder/nt/LungCancer.nt:/database/toLoad/LungCancer.nt
     networks:
@@ -17,8 +15,6 @@ services:
   kg_semdeslc:
     container_name: kg_semdeslc
     image: prohde/virtuoso-opensource-7:7.2.11
-    ports:
-      - "8892:8890"
     volumes:
       - ./experiments_kg_builder/nt/SemDesLC.nt:/database/toLoad/SemDesLC.nt
     networks:
@@ -26,22 +22,31 @@ services:
     environment:
       VIRT_PARAMETERS_NUMBEROFBUFFERS: 1360000
       VIRT_PARAMETERS_MAXDIRTYBUFFERS: 1000000
+
+  rules:
+    build: ./SymbolicLearning
+    image: semdeslc:rules
+    container_name: rules
+    volumes:
+        - ./SymbolicLearning/Rules/data:/Rules/data
+        - ./SemDesLC/rules:/result
   
   streamlit:
     build: .
     image: semdeslc:interface
+    container_name: semdeslc
     ports:
       - "8501:8501"
     volumes:
       - ./images:/app/images
       - ./SemDesLC/shapes:/app/shapes
-      - ./SemDesLC/interpretme/output:/app/output
-      - ./SemDesLC/interpretme/files:/app/files
+      - ./SemDesLC/rules:/app/rules
       - ./:/app/example
     command: ["streamlit", "run", "app.py"]
     networks:
       - semdeslc
     depends_on:
+      - rules
       - kg_lc
       - kg_semdeslc
       
