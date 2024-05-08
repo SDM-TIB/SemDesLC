@@ -125,6 +125,15 @@ services:
     volumes:
       - ./results:/results
 
+  sdmrdfizer:
+    image: sdmtib/sdmrdfizer:latest
+    container_name: sdmrdfizer
+    volumes:
+      - ./config-files:/data
+      - ./morph-kgc:/data/mappings
+    networks:
+      - experiment
+
 networks:
   experiment:
     driver: bridge

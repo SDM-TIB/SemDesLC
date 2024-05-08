@@ -1,0 +1,747 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix lungCancer: <http://research.tib.eu/lungCancer/vocab/> .
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+@base <http://research.tib.eu/lungCancer/vocab/> .
+
+
+<Patient_Gender>
+a rr:TriplesMap;
+    rml:logicalSource [ rml:source <RDB_source>;
+    rml:referenceFormulation ql:CSV;
+      rr:sqlVersion rr:SQL2008;
+      rml:query """ SELECT * FROM Patient""";
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/lungCancer/entity/{medicalrecord}_Patient";
+        rr:class lungCancer:Patient; 
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:hasGender;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{sexo}";
+        ]
+].
+
+<Patient_Age>
+a rr:TriplesMap;
+    rml:logicalSource [ rml:source <RDB_source>;
+    rml:referenceFormulation ql:CSV;
+      rr:sqlVersion rr:SQL2008;
+      rml:query """ SELECT * FROM PatientAge""";
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/lungCancer/entity/{medicalrecord}_Patient";
+        rr:class lungCancer:Patient; 
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:hasAgeCategory;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{ageCategory}";
+        ]
+].
+
+<Patient_Stage_histology>
+a rr:TriplesMap;
+    rml:logicalSource [ rml:source <RDB_source>;
+    rml:referenceFormulation ql:CSV;
+      rr:sqlVersion rr:SQL2008;
+      rml:query """ SELECT medicalrecord_diagnosis, estadioini, histologia_CUI FROM Diagnosis """;
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/lungCancer/entity/{medicalrecord_diagnosis}_Patient";
+        rr:class lungCancer:Patient; 
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:hasStage;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{estadioini}";
+        ]
+];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:hasHistology;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{histologia_CUI}";
+        ]
+].
+
+
+<SmokingHabit>
+a rr:TriplesMap;
+    rml:logicalSource [ rml:source <RDB_source>;
+    rml:referenceFormulation ql:CSV;
+      rr:sqlVersion rr:SQL2008;
+      rml:query """ SELECT medicalrecord_smokerinfo, habitotab FROM `Smoker_information` WHERE habitotab!='UnKnown'""";
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/lungCancer/entity/{medicalrecord_smokerinfo}_{habitotab}_Patient";
+        rr:class lungCancer:SmokingHabit; 
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:hasSmokingHabit;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{habitotab}";
+        ]
+].
+
+
+<Patient_SmokingHabit>
+a rr:TriplesMap;
+    rml:logicalSource [ rml:source <RDB_source>;
+    rml:referenceFormulation ql:CSV;
+      rr:sqlVersion rr:SQL2008;
+      rml:query """ SELECT medicalrecord_smokerinfo, habitotab FROM `Smoker_information` WHERE habitotab!='UnKnown'""";
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/lungCancer/entity/{medicalrecord_smokerinfo}_Patient";
+        rr:class lungCancer:Patient; 
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:patientSmoking;
+        rr:objectMap [
+            rr:parentTriplesMap <SmokingHabit>;
+            rr:joinCondition [
+                rr:child "medicalrecord_smokerinfo";
+                rr:parent "medicalrecord_smokerinfo";
+              ];
+        ]
+] .
+
+
+<Biomarker>
+a rr:TriplesMap;
+    rml:logicalSource [ rml:source <RDB_source>;
+    rml:referenceFormulation ql:CSV;
+      rr:sqlVersion rr:SQL2008;
+      rml:query """ SELECT DISTINCT t1.medicalrecord_marker as medicalrecord_marker, t2.marmolre as marmolre FROM `Diagnosis_markers` as t1, Molecular_markers as t2 WHERE t1.ID_marker = t2.ID_marker""";
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/lungCancer/entity/{medicalrecord_marker}_{marmolre}_Patient";
+        rr:class lungCancer:Biomarker; 
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:hasBiomarker;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{marmolre}";
+        ]
+].
+
+
+<Patient_Biomarker>
+a rr:TriplesMap;
+    rml:logicalSource [ rml:source <RDB_source>;
+    rml:referenceFormulation ql:CSV;
+      rr:sqlVersion rr:SQL2008;
+      rml:query """ SELECT DISTINCT t1.medicalrecord_marker as medicalrecord_marker, t2.marmolre as marmolre FROM `Diagnosis_markers` as t1, Molecular_markers as t2 WHERE t1.ID_marker = t2.ID_marker""";
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/lungCancer/entity/{medicalrecord_marker}_Patient";
+        rr:class lungCancer:Patient; 
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:patientBiomarker;
+        rr:objectMap [
+            rr:parentTriplesMap <Biomarker>;
+            rr:joinCondition [
+                rr:child "medicalrecord_marker";
+                rr:parent "medicalrecord_marker";
+              ];
+        ]
+].
+
+
+<Relapse_Progression>
+a rr:TriplesMap;
+    rml:logicalSource [ rml:source <RDB_source>;
+    rml:referenceFormulation ql:CSV;
+      rr:sqlVersion rr:SQL2008;
+      rml:query """ SELECT medicalrecord_relapse, recaida FROM Cancer_relapse WHERE recaida!='UnKnown'""";
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/lungCancer/entity/{medicalrecord_relapse}_{recaida}_Patient";
+        rr:class lungCancer:RelapseProgression; 
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:hasRelapse_Progression;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{recaida}";
+        ]
+].
+
+
+<Patient_Relapse_Progression>
+a rr:TriplesMap;
+    rml:logicalSource [ rml:source <RDB_source>;
+    rml:referenceFormulation ql:CSV;
+      rr:sqlVersion rr:SQL2008;
+      rml:query """ SELECT medicalrecord_relapse, recaida FROM Cancer_relapse WHERE recaida!='UnKnown'""";
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/lungCancer/entity/{medicalrecord_relapse}_Patient";
+        rr:class lungCancer:Patient; 
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:patientRelapseProgression;
+        rr:objectMap [
+            rr:parentTriplesMap <Relapse_Progression>;
+            rr:joinCondition [
+                rr:child "medicalrecord_relapse";
+                rr:parent "medicalrecord_relapse";
+              ];
+        ]
+].
+
+
+<Family>
+a rr:TriplesMap;
+    rml:logicalSource [ rml:source <RDB_source>;
+    rml:referenceFormulation ql:CSV;
+      rr:sqlVersion rr:SQL2008;
+      rml:query """SELECT DISTINCT t2.medicalrecord_cancerfam as medicalrecord_cancerfam, t1.familiarTranslation as familiarTranslation, t1.familiarGenderDegree as familiarGenderDegree FROM `FamilyRelationship` as t1, `Patient_cancer_familiar` as t2 WHERE t1.familiarSource = t2.familiar""";
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/lungCancer/entity/{medicalrecord_cancerfam}_{familiarTranslation}_Patient";
+        rr:class lungCancer:Family; 
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:hasFamily;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{familiarTranslation}";
+        ]
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:hasFamilyGenderDegree;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{familiarGenderDegree}";
+        ]
+].
+
+<Patient_Family>
+a rr:TriplesMap;
+    rml:logicalSource [ rml:source <RDB_source>;
+    rml:referenceFormulation ql:CSV;
+      rr:sqlVersion rr:SQL2008;
+      rml:query """SELECT DISTINCT t2.medicalrecord_cancerfam as medicalrecord_cancerfam, t1.familiarTranslation as familiarTranslation, t1.familiarGenderDegree as familiarGenderDegree FROM `FamilyRelationship` as t1, `Patient_cancer_familiar` as t2 WHERE t1.familiarSource = t2.familiar""";
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/lungCancer/entity/{medicalrecord_cancerfam}_Patient";
+        rr:class lungCancer:Patient; 
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:patientFamily;
+        rr:objectMap [
+            rr:parentTriplesMap <Family>;
+            rr:joinCondition [
+                rr:child "medicalrecord_cancerfam";
+                rr:parent "medicalrecord_cancerfam";
+              ];
+        ]
+    ].
+
+
+<Drug_Treatment>
+a rr:TriplesMap;
+    rml:logicalSource [ rml:source <RDB_source>;
+    rml:referenceFormulation ql:CSV;
+      rr:sqlVersion rr:SQL2008;
+      rml:query """ SELECT * FROM Patient_Drug_Treatment""";
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/lungCancer/entity/{medicalrecord}_{Drug_Treatment}_Patient";
+        rr:class lungCancer:Drug_Treatment; 
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:hasDrugTreatment;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{Drug_Treatment}";
+        ]
+    ].
+
+
+<Patient_Drug_Treatment>
+a rr:TriplesMap;
+    rml:logicalSource [ rml:source <RDB_source>;
+    rml:referenceFormulation ql:CSV;
+      rr:sqlVersion rr:SQL2008;
+      rml:query """ SELECT * FROM Patient_Drug_Treatment""";
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/lungCancer/entity/{medicalrecord}_Patient";
+        rr:class lungCancer:Patient; 
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:patientDrug;
+        rr:objectMap [
+            rr:parentTriplesMap <Drug_Treatment>;
+            rr:joinCondition [
+                rr:child "medicalrecord";
+                rr:parent "medicalrecord";
+              ];
+        ]
+    ].
+
+
+
+<TreatmentType_CT>
+a rr:TriplesMap;
+    rml:logicalSource [ rml:source <RDB_source>;
+    rml:referenceFormulation ql:CSV;
+      rr:sqlVersion rr:SQL2008;
+      rml:query """ SELECT * FROM Patient_CT_translated""";
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/lungCancer/entity/{medicalrecord}_{fecinitto}_{fecfintto}_Chemotherapy_Patient";
+        rr:class lungCancer:TreatmentType; 
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:hasPosition;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{ct_position}_CTposition";
+        ]
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:treatmentType;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{chemothrapyLabelEN}";
+        ]
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:startDate;
+        rr:objectMap [
+           rml:reference "fecinitto" ;
+           rr:datatype xsd:date 
+        ]
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:endDate;
+        rr:objectMap [
+          rml:reference "fecfintto" ;
+           rr:datatype xsd:date   
+        ]
+    ].
+
+
+<Patient_TreatmentType_CT>
+a rr:TriplesMap;
+    rml:logicalSource [ rml:source <RDB_source>;
+    rml:referenceFormulation ql:CSV;
+      rr:sqlVersion rr:SQL2008;
+      rml:query """ SELECT * FROM Patient_CT_translated""";
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/lungCancer/entity/{medicalrecord}_Patient";
+        rr:class lungCancer:Patient; 
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:patientTreatmentType;
+        rr:objectMap [
+            rr:parentTriplesMap <TreatmentType_CT>;
+            rr:joinCondition [
+                rr:child "medicalrecord";
+                rr:parent "medicalrecord";
+              ];
+        ]
+    ].
+
+
+<TreatmentType_RT>
+a rr:TriplesMap;
+    rml:logicalSource [ rml:source <RDB_source>;
+    rml:referenceFormulation ql:CSV;
+      rr:sqlVersion rr:SQL2008;
+      rml:query """ SELECT * FROM Patient_RT_area_translated""";
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/lungCancer/entity/{medicalrecord}_{fecinirt}_{fecfinrt}_Radiotherapy_Patient";
+        rr:class lungCancer:TreatmentType; 
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:hasPosition;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{rt_position}_RTposition";
+        ]
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:treatmentType;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{Radiotherapy_area}";
+        ]
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:startDate;
+        rr:objectMap [
+           rml:reference "fecinirt" ;
+           rr:datatype xsd:date 
+        ]
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:endDate;
+        rr:objectMap [
+          rml:reference "fecfinrt" ;
+           rr:datatype xsd:date   
+        ]
+    ].
+
+
+<Patient_TreatmentType_RT>
+a rr:TriplesMap;
+    rml:logicalSource [ rml:source <RDB_source>;
+    rml:referenceFormulation ql:CSV;
+      rr:sqlVersion rr:SQL2008;
+      rml:query """ SELECT * FROM Patient_RT_area_translated""";
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/lungCancer/entity/{medicalrecord}_Patient";
+        rr:class lungCancer:Patient; 
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:patientTreatmentType;
+        rr:objectMap [
+            rr:parentTriplesMap <TreatmentType_RT>;
+            rr:joinCondition [
+                rr:child "medicalrecord";
+                rr:parent "medicalrecord";
+              ];
+        ]
+    ].
+
+
+<TreatmentType_Surgery>
+a rr:TriplesMap;
+    rml:logicalSource [ rml:source <RDB_source>;
+    rml:referenceFormulation ql:CSV;
+      rr:sqlVersion rr:SQL2008;
+      rml:query """ SELECT * FROM Patient_surgery_translated""";
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/lungCancer/entity/{medicalrecord}_{feccir}_Surgery_Patient";
+        rr:class lungCancer:TreatmentType; 
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:hasPosition;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{surgery_position}_SurgeryPosition";
+        ]
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:treatmentType;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{surgeryLabel}";
+        ]
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:date;
+        rr:objectMap [
+           rml:reference "feccir" ;
+           rr:datatype xsd:date 
+        ]
+    ].
+
+
+<Patient_TreatmentType_Surgery>
+a rr:TriplesMap;
+    rml:logicalSource [ rml:source <RDB_source>;
+    rml:referenceFormulation ql:CSV;
+      rr:sqlVersion rr:SQL2008;
+      rml:query """ SELECT * FROM Patient_surgery_translated""";
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/lungCancer/entity/{medicalrecord}_Patient";
+        rr:class lungCancer:Patient; 
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:patientTreatmentType;
+        rr:objectMap [
+            rr:parentTriplesMap <TreatmentType_Surgery>;
+            rr:joinCondition [
+                rr:child "medicalrecord";
+                rr:parent "medicalrecord";
+              ];
+        ]
+    ].
+
+
+
+<Treatment_CT_Toxicity>
+a rr:TriplesMap;
+    rml:logicalSource [ rml:source <RDB_source>;
+    rml:referenceFormulation ql:CSV;
+      rr:sqlVersion rr:SQL2008;
+      rml:query """ SELECT DISTINCT t1.medicalrecord_CTtox as medicalrecord_CTtox, t1.ct_position as ct_position, t1.ID_toxicity_CT as ID_toxicity_CT, t2.toxicity as toxicity FROM `Patient_CT_toxicity` as t1, Treatment_toxicity_translated as t2 WHERE t1.ID_toxicity_CT = t2.ID_toxicity """;
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/lungCancer/entity/{medicalrecord_CTtox}_{ID_toxicity_CT}_CT_Toxicity_Patient";
+        rr:class lungCancer:TreatmentToxicity; 
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:toxicityID;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{ID_toxicity_CT}_CT_ToxicityID";
+        ]
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:hasPosition;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{ct_position}_CT_ToxicityPosition";
+        ]
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:toxicity;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{toxicity}";
+        ]
+    ].
+
+
+<Patient_CT_Toxicity>
+a rr:TriplesMap;
+    rml:logicalSource [ rml:source <RDB_source>;
+    rml:referenceFormulation ql:CSV;
+      rr:sqlVersion rr:SQL2008;
+      rml:query """ SELECT DISTINCT t1.medicalrecord_CTtox as medicalrecord_CTtox, t1.ct_position as ct_position, t1.ID_toxicity_CT as ID_toxicity_CT, t2.toxicity as toxicity FROM `Patient_CT_toxicity` as t1, Treatment_toxicity_translated as t2 WHERE t1.ID_toxicity_CT = t2.ID_toxicity """;
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/lungCancer/entity/{medicalrecord_CTtox}_Patient";
+        rr:class lungCancer:Patient; 
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:patientToxicity;
+        rr:objectMap [
+            rr:parentTriplesMap <Treatment_CT_Toxicity>;
+            rr:joinCondition [
+                rr:child "medicalrecord_CTtox";
+                rr:parent "medicalrecord_CTtox";
+              ];
+        ]
+    ].
+
+<Treatment_RT_Toxicity>
+a rr:TriplesMap;
+    rml:logicalSource [ rml:source <RDB_source>;
+    rml:referenceFormulation ql:CSV;
+      rr:sqlVersion rr:SQL2008;
+      rml:query """ SELECT DISTINCT t1.medicalrecord_RTtox as medicalrecord_RTtox, t1.rt_position as rt_position, t1.ID_toxicity_RT as ID_toxicity_RT, t2.toxicity as toxicity FROM `Patient_RT_toxicity` as t1, Treatment_toxicity_translated as t2 WHERE t1.ID_toxicity_RT = t2.ID_toxicity """;
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/lungCancer/entity/{medicalrecord_RTtox}_{ID_toxicity_RT}_RT_Toxicity_Patient";
+        rr:class lungCancer:TreatmentToxicity; 
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:toxicityID;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{ID_toxicity_RT}_RT_ToxicityID";
+        ]
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:hasPosition;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{rt_position}_RT_ToxicityPosition";
+        ]
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:toxicity;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{toxicity}";
+        ]
+    ].
+
+
+<Patient_RT_Toxicity>
+a rr:TriplesMap;
+    rml:logicalSource [ rml:source <RDB_source>;
+    rml:referenceFormulation ql:CSV;
+      rr:sqlVersion rr:SQL2008;
+      rml:query """ SELECT DISTINCT t1.medicalrecord_RTtox as medicalrecord_RTtox, t1.rt_position as rt_position, t1.ID_toxicity_RT as ID_toxicity_RT, t2.toxicity as toxicity FROM `Patient_RT_toxicity` as t1, Treatment_toxicity_translated as t2 WHERE t1.ID_toxicity_RT = t2.ID_toxicity """;
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/lungCancer/entity/{medicalrecord_RTtox}_Patient";
+        rr:class lungCancer:Patient; 
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:patientToxicity;
+        rr:objectMap [
+            rr:parentTriplesMap <Treatment_RT_Toxicity>;
+            rr:joinCondition [
+                rr:child "medicalrecord_RTtox";
+                rr:parent "medicalrecord_RTtox";
+              ];
+        ]
+    ].
+
+<Patient_PerformanceStatus>
+a rr:TriplesMap;
+    rml:logicalSource [ rml:source <RDB_source>;
+    rml:referenceFormulation ql:CSV;
+      rr:sqlVersion rr:SQL2008;
+      rml:query """ SELECT * FROM Patient_PerformanceStatus """;
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/lungCancer/entity/{medicalrecord}_Patient";
+        rr:class lungCancer:Patient; 
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:performanceStatus;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{performanceStatusATDiagnosis}";
+        ]
+    ].
+
+
+<EffectorDrug_deductive>
+a rr:TriplesMap;
+    rml:logicalSource [ rml:source <RDB_source>;
+    rml:referenceFormulation ql:CSV;
+      rr:sqlVersion rr:SQL2008;
+      rml:query """ SELECT EffectorDrugLabel, AffectedDrugLabel, Treatment FROM treatment_ddi_deductiveSystem_v1 """;
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/lungCancer/entity/{EffectorDrugLabel}";
+        rr:class lungCancer:DDI_deductive;  
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:interacts;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{AffectedDrugLabel}";
+        ]
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:belongsToTreatment;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{Treatment}";
+        ]
+    ].
+
+<AffectedDrug_deductive>
+a rr:TriplesMap;
+    rml:logicalSource [ rml:source <RDB_source>;
+    rml:referenceFormulation ql:CSV;
+      rr:sqlVersion rr:SQL2008;
+      rml:query """ SELECT EffectorDrugLabel, AffectedDrugLabel, Treatment FROM treatment_ddi_deductiveSystem_v1 """;
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/lungCancer/entity/{AffectedDrugLabel}";
+        rr:class lungCancer:DDI_deductive; 
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:interacts;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{EffectorDrugLabel}";
+        ]
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:belongsToTreatment;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{Treatment}";
+        ]
+    ].
+
+
+<EffectorDrug_drugbank>
+a rr:TriplesMap;
+    rml:logicalSource [ rml:source <RDB_source>;
+    rml:referenceFormulation ql:CSV;
+      rr:sqlVersion rr:SQL2008;
+      rml:query """ SELECT EffectorDrugLabel, AffectedDrugLabel, Treatment FROM treatment_ddi_drugbank_v1 """;
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/lungCancer/entity/{EffectorDrugLabel}";
+        rr:class lungCancer:DDI_drugbank; 
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:interacts;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{AffectedDrugLabel}";
+        ]
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:belongsToTreatment;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{Treatment}";
+        ]
+    ].
+
+<AffectedDrug_drugbank>
+a rr:TriplesMap;
+    rml:logicalSource [ rml:source <RDB_source>;
+    rml:referenceFormulation ql:CSV;
+      rr:sqlVersion rr:SQL2008;
+      rml:query """ SELECT EffectorDrugLabel, AffectedDrugLabel, Treatment FROM treatment_ddi_drugbank_v1 """;
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/lungCancer/entity/{AffectedDrugLabel}";
+        rr:class lungCancer:DDI_drugbank; 
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:interacts;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{EffectorDrugLabel}";
+        ]
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:belongsToTreatment;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{Treatment}";
+        ]
+    ].
+
+
+<EffectorDrug_literature>
+a rr:TriplesMap;
+    rml:logicalSource [ rml:source <RDB_source>;
+    rml:referenceFormulation ql:CSV;
+      rr:sqlVersion rr:SQL2008;
+      rml:query """ SELECT drugName1, drugName2, Treatment FROM treatment_ddi_literature_v1 """;
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/lungCancer/entity/{drugName1}";
+        rr:class lungCancer:DDI_literature; 
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:interacts;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{drugName2}";
+        ]
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:belongsToTreatment;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{Treatment}";
+        ]
+    ].
+
+<AffectedDrug_literature>
+a rr:TriplesMap;
+    rml:logicalSource [ rml:source <RDB_source>;
+    rml:referenceFormulation ql:CSV;
+      rr:sqlVersion rr:SQL2008;
+      rml:query """ SELECT drugName1, drugName2, Treatment FROM treatment_ddi_literature_v1 """;
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/lungCancer/entity/{drugName2}";
+        rr:class lungCancer:DDI_literature; 
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:interacts;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{drugName1}";
+        ]
+    ];
+       rr:predicateObjectMap [
+        rr:predicate lungCancer:belongsToTreatment;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/lungCancer/entity/{Treatment}";
+        ]
+    ].
+
+<RDB_source> a d2rq:Database;
+  d2rq:jdbcDSN "jdbc:mysql://mysql:3306/lc"; # the "jbdc:mysql:// part is ignored
+  d2rq:jdbcDriver "com.mysql.cj.jdbc.Driver"; # this is ignored
+  d2rq:username "root";
+  d2rq:password "lc" .    
