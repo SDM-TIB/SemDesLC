@@ -1,0 +1,130 @@
+version: '2'
+
+services:
+  mysql:
+    container_name: mysql
+    image: mysql:8.0.19
+    volumes:
+      - ./sql/SyntheticDB-LC.sql:/docker-entrypoint-initdb.d/SyntheticDB-LC.sql
+    mem_limit: 16g
+    networks:
+      - experiment
+    environment:
+      - MYSQL_DATABASE=lc
+      - MYSQL_ROOT_PASSWORD=lc
+
+  kg_lc:
+    container_name: kg_lc
+    image: prohde/virtuoso-opensource-7:7.2.11
+    volumes:
+      - ./nt/LungCancer.nt:/database/toLoad/LungCancer.nt
+    mem_limit: 16g
+    networks:
+      - experiment
+    environment:
+      VIRT_PARAMETERS_NUMBEROFBUFFERS: 1360000
+      VIRT_PARAMETERS_MAXDIRTYBUFFERS: 1000000
+
+  kg_semdeslc:
+    container_name: kg_semdeslc
+    image: prohde/virtuoso-opensource-7:7.2.11
+    volumes:
+      - ./nt/SemDesLC.nt:/database/toLoad/SemDesLC.nt
+    mem_limit: 16g
+    networks:
+      - experiment
+    environment:
+      VIRT_PARAMETERS_NUMBEROFBUFFERS: 1360000
+      VIRT_PARAMETERS_MAXDIRTYBUFFERS: 1000000
+
+  travshacl:
+    container_name: travshacl
+    image: semdeslc:travshacl
+    build: shacl/validators/Trav-SHACL
+    volumes:
+      - ./shacl/shapes:/shapes
+      - ./results/validation:/results
+    mem_limit: 16g
+    networks:
+      - experiment
+    depends_on:
+      - kg_lc
+
+  shaclex:
+    container_name: shaclex
+    image: semdeslc:shaclex
+    build: shacl/validators/shaclex
+    volumes:
+      - ./shacl/shapes:/shapes
+      - ./results/validation:/results
+    mem_limit: 16g
+    networks:
+      - experiment
+    depends_on:
+      - kg_lc
+
+  shaclsparql:
+    container_name: shaclsparql
+    image: semdeslc:shaclsparql
+    build: shacl/validators/SHACL2SPARQL
+    volumes:
+      - ./shacl/shapes:/shapes
+      - ./results/validation:/results
+    mem_limit: 16g
+    networks:
+      - experiment
+    depends_on:
+      - kg_lc
+
+  detrusty:
+    container_name: detrusty
+    image: semdeslc:detrusty
+    build: sparql/engines/DeTrusty
+    volumes:
+      - ./sparql/queries:/queries
+      - ./results/querying:/results
+    mem_limit: 16g
+    networks:
+      - experiment
+    depends_on:
+      - kg_lc
+      - kg_semdeslc
+
+  fedx:
+    container_name: fedx
+    image: semdeslc:fedx
+    build: sparql/engines/FedX
+    volumes:
+      - ./sparql/queries:/queries
+      - ./results/querying:/results
+    mem_limit: 16g
+    networks:
+      - experiment
+    depends_on:
+      - kg_lc
+      - kg_semdeslc
+
+  anapsid:
+    container_name: anapsid
+    image: semdeslc:anapsid
+    build: sparql/engines/ANAPSID
+    volumes:
+      - ./sparql/queries:/queries
+      - ./results/querying:/results
+    mem_limit: 16g
+    networks:
+      - experiment
+    depends_on:
+      - kg_lc
+      - kg_semdeslc
+
+  analysis:
+    container_name: analysis
+    image: semdeslc:analysis
+    build: analysis
+    volumes:
+      - ./results:/results
+
+networks:
+  experiment:
+    driver: bridge

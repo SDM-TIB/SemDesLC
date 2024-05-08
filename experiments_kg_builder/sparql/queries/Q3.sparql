@@ -1,0 +1,9 @@
+SELECT DISTINCT ?sourceEntity ?SHACLSchema ?SHACLShape ?SHACLValidationResult WHERE {
+  ?entity a <http://semdeslc.org/vocab/TargetEntity> .
+  ?entity <http://www.w3.org/2002/07/owl#sameAs> ?sourceEntity .
+  ?entity <http://semdeslc.org/vocab/hasEntity> <http://semdeslc.org/entity/133673_Patient> .
+  ?entity <http://semdeslc.org/vocab/hasSHACLValidationResult> ?SHACLIC .
+  ?SHACLIC <http://semdeslc.org/vocab/hasSHACLSchema> ?SHACLSchema .
+  ?SHACLIC <http://semdeslc.org/vocab/hasTargetShape> ?SHACLShape .
+  ?SHACLIC <http://semdeslc.org/vocab/hasSHACLResult> ?SHACLValidationResult .
+}

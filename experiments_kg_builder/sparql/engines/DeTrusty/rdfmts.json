@@ -1,0 +1,2261 @@
+[
+  {
+    "rootType": "http://research.tib.eu/lungCancer/vocab/Drug_Treatment",
+    "predicates": [
+      {
+        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://research.tib.eu/lungCancer/vocab/hasDrugTreatment",
+        "range": [
+          "http://research.tib.eu/lungCancer/vocab/DDI_literature",
+          "http://research.tib.eu/lungCancer/vocab/DDI_drugbank",
+          "http://research.tib.eu/lungCancer/vocab/DDI_deductive"
+        ],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      }
+    ],
+    "linkedTo": [
+      "http://research.tib.eu/lungCancer/vocab/DDI_literature",
+      "http://research.tib.eu/lungCancer/vocab/DDI_drugbank",
+      "http://research.tib.eu/lungCancer/vocab/DDI_deductive"
+    ],
+    "wrappers": [
+      {
+        "url": "http://kg_lc:8890/sparql",
+        "predicates": [
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "http://research.tib.eu/lungCancer/vocab/hasDrugTreatment"
+        ],
+        "urlparam": "",
+        "wrapperType": "SPARQLEndpoint"
+      }
+    ]
+  },
+  {
+    "rootType": "http://research.tib.eu/lungCancer/vocab/TreatmentType",
+    "predicates": [
+      {
+        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://research.tib.eu/lungCancer/vocab/date",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://research.tib.eu/lungCancer/vocab/endDate",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://research.tib.eu/lungCancer/vocab/hasPosition",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://research.tib.eu/lungCancer/vocab/startDate",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://research.tib.eu/lungCancer/vocab/treatmentType",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      }
+    ],
+    "linkedTo": [],
+    "wrappers": [
+      {
+        "url": "http://kg_lc:8890/sparql",
+        "predicates": [
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "http://research.tib.eu/lungCancer/vocab/date",
+          "http://research.tib.eu/lungCancer/vocab/endDate",
+          "http://research.tib.eu/lungCancer/vocab/hasPosition",
+          "http://research.tib.eu/lungCancer/vocab/startDate",
+          "http://research.tib.eu/lungCancer/vocab/treatmentType"
+        ],
+        "urlparam": "",
+        "wrapperType": "SPARQLEndpoint"
+      }
+    ]
+  },
+  {
+    "rootType": "http://research.tib.eu/lungCancer/vocab/Biomarker",
+    "predicates": [
+      {
+        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://research.tib.eu/lungCancer/vocab/hasBiomarker",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      }
+    ],
+    "linkedTo": [],
+    "wrappers": [
+      {
+        "url": "http://kg_lc:8890/sparql",
+        "predicates": [
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "http://research.tib.eu/lungCancer/vocab/hasBiomarker"
+        ],
+        "urlparam": "",
+        "wrapperType": "SPARQLEndpoint"
+      }
+    ]
+  },
+  {
+    "rootType": "http://research.tib.eu/lungCancer/vocab/SmokingHabit",
+    "predicates": [
+      {
+        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://research.tib.eu/lungCancer/vocab/hasSmokingHabit",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      }
+    ],
+    "linkedTo": [],
+    "wrappers": [
+      {
+        "url": "http://kg_lc:8890/sparql",
+        "predicates": [
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "http://research.tib.eu/lungCancer/vocab/hasSmokingHabit"
+        ],
+        "urlparam": "",
+        "wrapperType": "SPARQLEndpoint"
+      }
+    ]
+  },
+  {
+    "rootType": "http://research.tib.eu/lungCancer/vocab/Family",
+    "predicates": [
+      {
+        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://research.tib.eu/lungCancer/vocab/hasFamily",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://research.tib.eu/lungCancer/vocab/hasFamilyGenderDegree",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      }
+    ],
+    "linkedTo": [],
+    "wrappers": [
+      {
+        "url": "http://kg_lc:8890/sparql",
+        "predicates": [
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "http://research.tib.eu/lungCancer/vocab/hasFamily",
+          "http://research.tib.eu/lungCancer/vocab/hasFamilyGenderDegree"
+        ],
+        "urlparam": "",
+        "wrapperType": "SPARQLEndpoint"
+      }
+    ]
+  },
+  {
+    "rootType": "http://research.tib.eu/lungCancer/vocab/Patient",
+    "predicates": [
+      {
+        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://research.tib.eu/lungCancer/vocab/hasAgeCategory",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://research.tib.eu/lungCancer/vocab/hasGender",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://research.tib.eu/lungCancer/vocab/hasHistology",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://research.tib.eu/lungCancer/vocab/hasStage",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://research.tib.eu/lungCancer/vocab/patientBiomarker",
+        "range": [
+          "http://research.tib.eu/lungCancer/vocab/Biomarker"
+        ],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://research.tib.eu/lungCancer/vocab/patientDrug",
+        "range": [
+          "http://research.tib.eu/lungCancer/vocab/Drug_Treatment"
+        ],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://research.tib.eu/lungCancer/vocab/patientFamily",
+        "range": [
+          "http://research.tib.eu/lungCancer/vocab/Family"
+        ],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://research.tib.eu/lungCancer/vocab/patientRelapseProgression",
+        "range": [
+          "http://research.tib.eu/lungCancer/vocab/RelapseProgression"
+        ],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://research.tib.eu/lungCancer/vocab/patientSmoking",
+        "range": [
+          "http://research.tib.eu/lungCancer/vocab/SmokingHabit"
+        ],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://research.tib.eu/lungCancer/vocab/patientToxicity",
+        "range": [
+          "http://research.tib.eu/lungCancer/vocab/TreatmentToxicity"
+        ],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://research.tib.eu/lungCancer/vocab/patientTreatmentType",
+        "range": [
+          "http://research.tib.eu/lungCancer/vocab/TreatmentType"
+        ],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://research.tib.eu/lungCancer/vocab/performanceStatus",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      }
+    ],
+    "linkedTo": [
+      "http://research.tib.eu/lungCancer/vocab/Biomarker",
+      "http://research.tib.eu/lungCancer/vocab/RelapseProgression",
+      "http://research.tib.eu/lungCancer/vocab/TreatmentToxicity",
+      "http://research.tib.eu/lungCancer/vocab/TreatmentType",
+      "http://research.tib.eu/lungCancer/vocab/Drug_Treatment",
+      "http://research.tib.eu/lungCancer/vocab/Family",
+      "http://research.tib.eu/lungCancer/vocab/SmokingHabit"
+    ],
+    "wrappers": [
+      {
+        "url": "http://kg_lc:8890/sparql",
+        "predicates": [
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "http://research.tib.eu/lungCancer/vocab/hasAgeCategory",
+          "http://research.tib.eu/lungCancer/vocab/hasGender",
+          "http://research.tib.eu/lungCancer/vocab/hasHistology",
+          "http://research.tib.eu/lungCancer/vocab/hasStage",
+          "http://research.tib.eu/lungCancer/vocab/patientBiomarker",
+          "http://research.tib.eu/lungCancer/vocab/patientDrug",
+          "http://research.tib.eu/lungCancer/vocab/patientFamily",
+          "http://research.tib.eu/lungCancer/vocab/patientRelapseProgression",
+          "http://research.tib.eu/lungCancer/vocab/patientSmoking",
+          "http://research.tib.eu/lungCancer/vocab/patientToxicity",
+          "http://research.tib.eu/lungCancer/vocab/patientTreatmentType",
+          "http://research.tib.eu/lungCancer/vocab/performanceStatus"
+        ],
+        "urlparam": "",
+        "wrapperType": "SPARQLEndpoint"
+      }
+    ]
+  },
+  {
+    "rootType": "http://research.tib.eu/lungCancer/vocab/RelapseProgression",
+    "predicates": [
+      {
+        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://research.tib.eu/lungCancer/vocab/hasRelapse_Progression",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      }
+    ],
+    "linkedTo": [],
+    "wrappers": [
+      {
+        "url": "http://kg_lc:8890/sparql",
+        "predicates": [
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "http://research.tib.eu/lungCancer/vocab/hasRelapse_Progression"
+        ],
+        "urlparam": "",
+        "wrapperType": "SPARQLEndpoint"
+      }
+    ]
+  },
+  {
+    "rootType": "http://research.tib.eu/lungCancer/vocab/TreatmentToxicity",
+    "predicates": [
+      {
+        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://research.tib.eu/lungCancer/vocab/hasPosition",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://research.tib.eu/lungCancer/vocab/toxicity",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://research.tib.eu/lungCancer/vocab/toxicityID",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      }
+    ],
+    "linkedTo": [],
+    "wrappers": [
+      {
+        "url": "http://kg_lc:8890/sparql",
+        "predicates": [
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "http://research.tib.eu/lungCancer/vocab/hasPosition",
+          "http://research.tib.eu/lungCancer/vocab/toxicity",
+          "http://research.tib.eu/lungCancer/vocab/toxicityID"
+        ],
+        "urlparam": "",
+        "wrapperType": "SPARQLEndpoint"
+      }
+    ]
+  },
+  {
+    "rootType": "http://research.tib.eu/lungCancer/vocab/DDI_deductive",
+    "predicates": [
+      {
+        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://research.tib.eu/lungCancer/vocab/belongsToTreatment",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://research.tib.eu/lungCancer/vocab/interacts",
+        "range": [
+          "http://research.tib.eu/lungCancer/vocab/DDI_literature",
+          "http://research.tib.eu/lungCancer/vocab/DDI_drugbank",
+          "http://research.tib.eu/lungCancer/vocab/DDI_deductive"
+        ],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      }
+    ],
+    "linkedTo": [
+      "http://research.tib.eu/lungCancer/vocab/DDI_literature",
+      "http://research.tib.eu/lungCancer/vocab/DDI_drugbank",
+      "http://research.tib.eu/lungCancer/vocab/DDI_deductive"
+    ],
+    "wrappers": [
+      {
+        "url": "http://kg_lc:8890/sparql",
+        "predicates": [
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "http://research.tib.eu/lungCancer/vocab/belongsToTreatment",
+          "http://research.tib.eu/lungCancer/vocab/interacts"
+        ],
+        "urlparam": "",
+        "wrapperType": "SPARQLEndpoint"
+      }
+    ]
+  },
+  {
+    "rootType": "http://research.tib.eu/lungCancer/vocab/DDI_drugbank",
+    "predicates": [
+      {
+        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://research.tib.eu/lungCancer/vocab/belongsToTreatment",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://research.tib.eu/lungCancer/vocab/interacts",
+        "range": [
+          "http://research.tib.eu/lungCancer/vocab/DDI_literature",
+          "http://research.tib.eu/lungCancer/vocab/DDI_drugbank",
+          "http://research.tib.eu/lungCancer/vocab/DDI_deductive"
+        ],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      }
+    ],
+    "linkedTo": [
+      "http://research.tib.eu/lungCancer/vocab/DDI_literature",
+      "http://research.tib.eu/lungCancer/vocab/DDI_drugbank",
+      "http://research.tib.eu/lungCancer/vocab/DDI_deductive"
+    ],
+    "wrappers": [
+      {
+        "url": "http://kg_lc:8890/sparql",
+        "predicates": [
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "http://research.tib.eu/lungCancer/vocab/belongsToTreatment",
+          "http://research.tib.eu/lungCancer/vocab/interacts"
+        ],
+        "urlparam": "",
+        "wrapperType": "SPARQLEndpoint"
+      }
+    ]
+  },
+  {
+    "rootType": "http://research.tib.eu/lungCancer/vocab/DDI_literature",
+    "predicates": [
+      {
+        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://research.tib.eu/lungCancer/vocab/belongsToTreatment",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://research.tib.eu/lungCancer/vocab/interacts",
+        "range": [
+          "http://research.tib.eu/lungCancer/vocab/DDI_literature",
+          "http://research.tib.eu/lungCancer/vocab/DDI_drugbank",
+          "http://research.tib.eu/lungCancer/vocab/DDI_deductive"
+        ],
+        "policies": [
+          {
+            "dataset": "http://kg_lc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      }
+    ],
+    "linkedTo": [
+      "http://research.tib.eu/lungCancer/vocab/DDI_literature",
+      "http://research.tib.eu/lungCancer/vocab/DDI_drugbank",
+      "http://research.tib.eu/lungCancer/vocab/DDI_deductive"
+    ],
+    "wrappers": [
+      {
+        "url": "http://kg_lc:8890/sparql",
+        "predicates": [
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "http://research.tib.eu/lungCancer/vocab/belongsToTreatment",
+          "http://research.tib.eu/lungCancer/vocab/interacts"
+        ],
+        "urlparam": "",
+        "wrapperType": "SPARQLEndpoint"
+      }
+    ]
+  },
+  {
+    "rootType": "http://interpretme.org/vocab/PredictionFeatures",
+    "predicates": [
+      {
+        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://www.w3.org/ns/prov#hasGeneratedBy",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasEntity",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasFeatureWeight",
+        "range": [
+          "http://interpretme.org/vocab/FeaturesWeights"
+        ],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasRun",
+        "range": [
+          "http://interpretme.org/vocab/PredictionClasses",
+          "http://interpretme.org/vocab/ImportantFeature",
+          "http://www.w3.org/ns/mls#Run",
+          "http://interpretme.org/vocab/CrossValidation",
+          "http://interpretme.org/vocab/SamplingStrategy"
+        ],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      }
+    ],
+    "linkedTo": [
+      "http://interpretme.org/vocab/FeaturesWeights",
+      "http://interpretme.org/vocab/PredictionClasses",
+      "http://interpretme.org/vocab/ImportantFeature",
+      "http://www.w3.org/ns/mls#Run",
+      "http://interpretme.org/vocab/CrossValidation",
+      "http://interpretme.org/vocab/SamplingStrategy"
+    ],
+    "wrappers": [
+      {
+        "url": "http://kg_semdeslc:8890/sparql",
+        "predicates": [
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "http://www.w3.org/ns/prov#hasGeneratedBy",
+          "http://interpretme.org/vocab/hasEntity",
+          "http://interpretme.org/vocab/hasFeatureWeight",
+          "http://interpretme.org/vocab/hasRun"
+        ],
+        "urlparam": "",
+        "wrapperType": "SPARQLEndpoint"
+      }
+    ]
+  },
+  {
+    "rootType": "http://interpretme.org/vocab/FeaturesWeights",
+    "predicates": [
+      {
+        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://www.w3.org/ns/prov#hasGeneratedBy",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasFeature",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasRun",
+        "range": [
+          "http://interpretme.org/vocab/PredictionClasses",
+          "http://interpretme.org/vocab/ImportantFeature",
+          "http://www.w3.org/ns/mls#Run",
+          "http://interpretme.org/vocab/CrossValidation",
+          "http://interpretme.org/vocab/SamplingStrategy"
+        ],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasWeight",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      }
+    ],
+    "linkedTo": [
+      "http://interpretme.org/vocab/PredictionClasses",
+      "http://interpretme.org/vocab/ImportantFeature",
+      "http://www.w3.org/ns/mls#Run",
+      "http://interpretme.org/vocab/CrossValidation",
+      "http://interpretme.org/vocab/SamplingStrategy"
+    ],
+    "wrappers": [
+      {
+        "url": "http://kg_semdeslc:8890/sparql",
+        "predicates": [
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "http://www.w3.org/ns/prov#hasGeneratedBy",
+          "http://interpretme.org/vocab/hasFeature",
+          "http://interpretme.org/vocab/hasRun",
+          "http://interpretme.org/vocab/hasWeight"
+        ],
+        "urlparam": "",
+        "wrapperType": "SPARQLEndpoint"
+      }
+    ]
+  },
+  {
+    "rootType": "http://interpretme.org/vocab/SHACLSchema",
+    "predicates": [
+      {
+        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasRun",
+        "range": [
+          "http://interpretme.org/vocab/PredictionClasses",
+          "http://interpretme.org/vocab/ImportantFeature",
+          "http://www.w3.org/ns/mls#Run",
+          "http://interpretme.org/vocab/CrossValidation",
+          "http://interpretme.org/vocab/SamplingStrategy"
+        ],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasID",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasName",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      }
+    ],
+    "linkedTo": [
+      "http://interpretme.org/vocab/PredictionClasses",
+      "http://interpretme.org/vocab/ImportantFeature",
+      "http://www.w3.org/ns/mls#Run",
+      "http://interpretme.org/vocab/CrossValidation",
+      "http://interpretme.org/vocab/SamplingStrategy"
+    ],
+    "wrappers": [
+      {
+        "url": "http://kg_semdeslc:8890/sparql",
+        "predicates": [
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "http://interpretme.org/vocab/hasRun",
+          "http://interpretme.org/vocab/hasID",
+          "http://interpretme.org/vocab/hasName"
+        ],
+        "urlparam": "",
+        "wrapperType": "SPARQLEndpoint"
+      }
+    ]
+  },
+  {
+    "rootType": "http://interpretme.org/vocab/TargetEntity",
+    "predicates": [
+      {
+        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://www.w3.org/2002/07/owl#sameAs",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasEntity",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasEntityClassProbability",
+        "range": [
+          "http://interpretme.org/vocab/PredictionInterpretability"
+        ],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasInterpretedFeature",
+        "range": [
+          "http://interpretme.org/vocab/PredictionFeatures"
+        ],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasRun",
+        "range": [
+          "http://interpretme.org/vocab/PredictionClasses",
+          "http://interpretme.org/vocab/ImportantFeature",
+          "http://www.w3.org/ns/mls#Run",
+          "http://interpretme.org/vocab/CrossValidation",
+          "http://interpretme.org/vocab/SamplingStrategy"
+        ],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasSHACLValidationResult",
+        "range": [
+          "http://interpretme.org/vocab/SHACLValidationResult"
+        ],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      }
+    ],
+    "linkedTo": [
+      "http://interpretme.org/vocab/PredictionClasses",
+      "http://interpretme.org/vocab/ImportantFeature",
+      "http://www.w3.org/ns/mls#Run",
+      "http://interpretme.org/vocab/CrossValidation",
+      "http://interpretme.org/vocab/SHACLValidationResult",
+      "http://interpretme.org/vocab/SamplingStrategy",
+      "http://interpretme.org/vocab/PredictionFeatures",
+      "http://interpretme.org/vocab/PredictionInterpretability"
+    ],
+    "wrappers": [
+      {
+        "url": "http://kg_semdeslc:8890/sparql",
+        "predicates": [
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "http://www.w3.org/2002/07/owl#sameAs",
+          "http://interpretme.org/vocab/hasEntity",
+          "http://interpretme.org/vocab/hasEntityClassProbability",
+          "http://interpretme.org/vocab/hasInterpretedFeature",
+          "http://interpretme.org/vocab/hasRun",
+          "http://interpretme.org/vocab/hasSHACLValidationResult"
+        ],
+        "urlparam": "",
+        "wrapperType": "SPARQLEndpoint"
+      }
+    ]
+  },
+  {
+    "rootType": "http://interpretme.org/vocab/SHACLValidationResult",
+    "predicates": [
+      {
+        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasEntity",
+        "range": [
+          "http://interpretme.org/vocab/TargetEntity"
+        ],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasRun",
+        "range": [
+          "http://interpretme.org/vocab/PredictionClasses",
+          "http://interpretme.org/vocab/ImportantFeature",
+          "http://www.w3.org/ns/mls#Run",
+          "http://interpretme.org/vocab/CrossValidation",
+          "http://interpretme.org/vocab/SamplingStrategy"
+        ],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasSHACLResult",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasSHACLSchema",
+        "range": [
+          "http://interpretme.org/vocab/SHACLSchema"
+        ],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasTargetShape",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      }
+    ],
+    "linkedTo": [
+      "http://interpretme.org/vocab/PredictionClasses",
+      "http://interpretme.org/vocab/SHACLSchema",
+      "http://interpretme.org/vocab/TargetEntity",
+      "http://interpretme.org/vocab/ImportantFeature",
+      "http://www.w3.org/ns/mls#Run",
+      "http://interpretme.org/vocab/CrossValidation",
+      "http://interpretme.org/vocab/SamplingStrategy"
+    ],
+    "wrappers": [
+      {
+        "url": "http://kg_semdeslc:8890/sparql",
+        "predicates": [
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "http://interpretme.org/vocab/hasEntity",
+          "http://interpretme.org/vocab/hasRun",
+          "http://interpretme.org/vocab/hasSHACLResult",
+          "http://interpretme.org/vocab/hasSHACLSchema",
+          "http://interpretme.org/vocab/hasTargetShape"
+        ],
+        "urlparam": "",
+        "wrapperType": "SPARQLEndpoint"
+      }
+    ]
+  },
+  {
+    "rootType": "http://interpretme.org/vocab/PredictionInterpretability",
+    "predicates": [
+      {
+        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://www.w3.org/ns/prov#hasGeneratedBy",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasClass",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasEntity",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasPredictionProbability",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasRun",
+        "range": [
+          "http://interpretme.org/vocab/PredictionClasses",
+          "http://interpretme.org/vocab/ImportantFeature",
+          "http://www.w3.org/ns/mls#Run",
+          "http://interpretme.org/vocab/CrossValidation",
+          "http://interpretme.org/vocab/SamplingStrategy"
+        ],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      }
+    ],
+    "linkedTo": [
+      "http://interpretme.org/vocab/PredictionClasses",
+      "http://interpretme.org/vocab/ImportantFeature",
+      "http://www.w3.org/ns/mls#Run",
+      "http://interpretme.org/vocab/CrossValidation",
+      "http://interpretme.org/vocab/SamplingStrategy"
+    ],
+    "wrappers": [
+      {
+        "url": "http://kg_semdeslc:8890/sparql",
+        "predicates": [
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "http://www.w3.org/ns/prov#hasGeneratedBy",
+          "http://interpretme.org/vocab/hasClass",
+          "http://interpretme.org/vocab/hasEntity",
+          "http://interpretme.org/vocab/hasPredictionProbability",
+          "http://interpretme.org/vocab/hasRun"
+        ],
+        "urlparam": "",
+        "wrapperType": "SPARQLEndpoint"
+      }
+    ]
+  },
+  {
+    "rootType": "http://interpretme.org/vocab/CrossValidation",
+    "predicates": [
+      {
+        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasClasses",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasCrossValidation",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasImportantFeature",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasSampling",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://www.w3.org/ns/mls#executes",
+        "range": [
+          "http://www.w3.org/ns/mls#Implementation"
+        ],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://www.w3.org/ns/mls#realizes",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      }
+    ],
+    "linkedTo": [
+      "http://www.w3.org/ns/mls#Implementation"
+    ],
+    "wrappers": [
+      {
+        "url": "http://kg_semdeslc:8890/sparql",
+        "predicates": [
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "http://interpretme.org/vocab/hasClasses",
+          "http://interpretme.org/vocab/hasCrossValidation",
+          "http://interpretme.org/vocab/hasImportantFeature",
+          "http://interpretme.org/vocab/hasSampling",
+          "http://www.w3.org/ns/mls#executes",
+          "http://www.w3.org/ns/mls#realizes"
+        ],
+        "urlparam": "",
+        "wrapperType": "SPARQLEndpoint"
+      }
+    ]
+  },
+  {
+    "rootType": "http://interpretme.org/vocab/ImportantFeature",
+    "predicates": [
+      {
+        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasClasses",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasCrossValidation",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasImportantFeature",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasSampling",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://www.w3.org/ns/mls#executes",
+        "range": [
+          "http://www.w3.org/ns/mls#Implementation"
+        ],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://www.w3.org/ns/mls#realizes",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      }
+    ],
+    "linkedTo": [
+      "http://www.w3.org/ns/mls#Implementation"
+    ],
+    "wrappers": [
+      {
+        "url": "http://kg_semdeslc:8890/sparql",
+        "predicates": [
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "http://interpretme.org/vocab/hasClasses",
+          "http://interpretme.org/vocab/hasCrossValidation",
+          "http://interpretme.org/vocab/hasImportantFeature",
+          "http://interpretme.org/vocab/hasSampling",
+          "http://www.w3.org/ns/mls#executes",
+          "http://www.w3.org/ns/mls#realizes"
+        ],
+        "urlparam": "",
+        "wrapperType": "SPARQLEndpoint"
+      }
+    ]
+  },
+  {
+    "rootType": "http://interpretme.org/vocab/PredictionClasses",
+    "predicates": [
+      {
+        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasClasses",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasCrossValidation",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasImportantFeature",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasSampling",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://www.w3.org/ns/mls#executes",
+        "range": [
+          "http://www.w3.org/ns/mls#Implementation"
+        ],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://www.w3.org/ns/mls#realizes",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      }
+    ],
+    "linkedTo": [
+      "http://www.w3.org/ns/mls#Implementation"
+    ],
+    "wrappers": [
+      {
+        "url": "http://kg_semdeslc:8890/sparql",
+        "predicates": [
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "http://interpretme.org/vocab/hasClasses",
+          "http://interpretme.org/vocab/hasCrossValidation",
+          "http://interpretme.org/vocab/hasImportantFeature",
+          "http://interpretme.org/vocab/hasSampling",
+          "http://www.w3.org/ns/mls#executes",
+          "http://www.w3.org/ns/mls#realizes"
+        ],
+        "urlparam": "",
+        "wrapperType": "SPARQLEndpoint"
+      }
+    ]
+  },
+  {
+    "rootType": "http://interpretme.org/vocab/SamplingStrategy",
+    "predicates": [
+      {
+        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasClasses",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasCrossValidation",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasImportantFeature",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasSampling",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://www.w3.org/ns/mls#executes",
+        "range": [
+          "http://www.w3.org/ns/mls#Implementation"
+        ],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://www.w3.org/ns/mls#realizes",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      }
+    ],
+    "linkedTo": [
+      "http://www.w3.org/ns/mls#Implementation"
+    ],
+    "wrappers": [
+      {
+        "url": "http://kg_semdeslc:8890/sparql",
+        "predicates": [
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "http://interpretme.org/vocab/hasClasses",
+          "http://interpretme.org/vocab/hasCrossValidation",
+          "http://interpretme.org/vocab/hasImportantFeature",
+          "http://interpretme.org/vocab/hasSampling",
+          "http://www.w3.org/ns/mls#executes",
+          "http://www.w3.org/ns/mls#realizes"
+        ],
+        "urlparam": "",
+        "wrapperType": "SPARQLEndpoint"
+      }
+    ]
+  },
+  {
+    "rootType": "http://www.w3.org/ns/mls#Run",
+    "predicates": [
+      {
+        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasClasses",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasCrossValidation",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasImportantFeature",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasSampling",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://www.w3.org/ns/mls#executes",
+        "range": [
+          "http://www.w3.org/ns/mls#Implementation"
+        ],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://www.w3.org/ns/mls#realizes",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      }
+    ],
+    "linkedTo": [
+      "http://www.w3.org/ns/mls#Implementation"
+    ],
+    "wrappers": [
+      {
+        "url": "http://kg_semdeslc:8890/sparql",
+        "predicates": [
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "http://interpretme.org/vocab/hasClasses",
+          "http://interpretme.org/vocab/hasCrossValidation",
+          "http://interpretme.org/vocab/hasImportantFeature",
+          "http://interpretme.org/vocab/hasSampling",
+          "http://www.w3.org/ns/mls#executes",
+          "http://www.w3.org/ns/mls#realizes"
+        ],
+        "urlparam": "",
+        "wrapperType": "SPARQLEndpoint"
+      }
+    ]
+  },
+  {
+    "rootType": "http://interpretme.org/vocab/FeatureDefinition",
+    "predicates": [
+      {
+        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasClasses",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasDefinition",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasF1score",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasFeature",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasPrecision",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasRecall",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasRun",
+        "range": [
+          "http://interpretme.org/vocab/PredictionClasses",
+          "http://interpretme.org/vocab/ImportantFeature",
+          "http://www.w3.org/ns/mls#Run",
+          "http://interpretme.org/vocab/CrossValidation",
+          "http://interpretme.org/vocab/SamplingStrategy"
+        ],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasSupport",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      }
+    ],
+    "linkedTo": [
+      "http://interpretme.org/vocab/PredictionClasses",
+      "http://interpretme.org/vocab/ImportantFeature",
+      "http://www.w3.org/ns/mls#Run",
+      "http://interpretme.org/vocab/CrossValidation",
+      "http://interpretme.org/vocab/SamplingStrategy"
+    ],
+    "wrappers": [
+      {
+        "url": "http://kg_semdeslc:8890/sparql",
+        "predicates": [
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "http://interpretme.org/vocab/hasClasses",
+          "http://interpretme.org/vocab/hasDefinition",
+          "http://interpretme.org/vocab/hasF1score",
+          "http://interpretme.org/vocab/hasFeature",
+          "http://interpretme.org/vocab/hasPrecision",
+          "http://interpretme.org/vocab/hasRecall",
+          "http://interpretme.org/vocab/hasRun",
+          "http://interpretme.org/vocab/hasSupport"
+        ],
+        "urlparam": "",
+        "wrapperType": "SPARQLEndpoint"
+      }
+    ]
+  },
+  {
+    "rootType": "http://www.w3.org/ns/mls#Implementation",
+    "predicates": [
+      {
+        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://www.w3.org/ns/mls#hasOutput",
+        "range": [
+          "http://www.w3.org/ns/mls#ModelEvaluation"
+        ],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://www.w3.org/ns/mls#hasInput",
+        "range": [
+          "http://www.w3.org/ns/mls#HyperParameterSetting"
+        ],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://www.w3.org/ns/mls#implements",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      }
+    ],
+    "linkedTo": [
+      "http://www.w3.org/ns/mls#HyperParameterSetting",
+      "http://www.w3.org/ns/mls#ModelEvaluation"
+    ],
+    "wrappers": [
+      {
+        "url": "http://kg_semdeslc:8890/sparql",
+        "predicates": [
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "http://www.w3.org/ns/mls#hasOutput",
+          "http://www.w3.org/ns/mls#hasInput",
+          "http://www.w3.org/ns/mls#implements"
+        ],
+        "urlparam": "",
+        "wrapperType": "SPARQLEndpoint"
+      }
+    ]
+  },
+  {
+    "rootType": "http://www.w3.org/ns/mls#ModelEvaluation",
+    "predicates": [
+      {
+        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://www.w3.org/ns/mls#hasValue",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://www.w3.org/ns/mls#specifiedBy",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      }
+    ],
+    "linkedTo": [],
+    "wrappers": [
+      {
+        "url": "http://kg_semdeslc:8890/sparql",
+        "predicates": [
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "http://www.w3.org/ns/mls#hasValue",
+          "http://www.w3.org/ns/mls#specifiedBy"
+        ],
+        "urlparam": "",
+        "wrapperType": "SPARQLEndpoint"
+      }
+    ]
+  },
+  {
+    "rootType": "http://www.w3.org/ns/mls#HyperParameterSetting",
+    "predicates": [
+      {
+        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://www.w3.org/ns/mls#hasHyperParameter",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://www.w3.org/ns/mls#hasValue",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      }
+    ],
+    "linkedTo": [],
+    "wrappers": [
+      {
+        "url": "http://kg_semdeslc:8890/sparql",
+        "predicates": [
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "http://www.w3.org/ns/mls#hasHyperParameter",
+          "http://www.w3.org/ns/mls#hasValue"
+        ],
+        "urlparam": "",
+        "wrapperType": "SPARQLEndpoint"
+      }
+    ]
+  },
+  {
+    "rootType": "http://interpretme.org/vocab/PrecisionRecall",
+    "predicates": [
+      {
+        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasClasses",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasDefinition",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasF1score",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasFeature",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasPrecision",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasRecall",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasRun",
+        "range": [
+          "http://interpretme.org/vocab/PredictionClasses",
+          "http://interpretme.org/vocab/ImportantFeature",
+          "http://www.w3.org/ns/mls#Run",
+          "http://interpretme.org/vocab/CrossValidation",
+          "http://interpretme.org/vocab/SamplingStrategy"
+        ],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasSupport",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      }
+    ],
+    "linkedTo": [
+      "http://interpretme.org/vocab/PredictionClasses",
+      "http://interpretme.org/vocab/ImportantFeature",
+      "http://www.w3.org/ns/mls#Run",
+      "http://interpretme.org/vocab/CrossValidation",
+      "http://interpretme.org/vocab/SamplingStrategy"
+    ],
+    "wrappers": [
+      {
+        "url": "http://kg_semdeslc:8890/sparql",
+        "predicates": [
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "http://interpretme.org/vocab/hasClasses",
+          "http://interpretme.org/vocab/hasDefinition",
+          "http://interpretme.org/vocab/hasF1score",
+          "http://interpretme.org/vocab/hasFeature",
+          "http://interpretme.org/vocab/hasPrecision",
+          "http://interpretme.org/vocab/hasRecall",
+          "http://interpretme.org/vocab/hasRun",
+          "http://interpretme.org/vocab/hasSupport"
+        ],
+        "urlparam": "",
+        "wrapperType": "SPARQLEndpoint"
+      }
+    ]
+  },
+  {
+    "rootType": "http://interpretme.org/vocab/Endpoint",
+    "predicates": [
+      {
+        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasEndpoint",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      }
+    ],
+    "linkedTo": [],
+    "wrappers": [
+      {
+        "url": "http://kg_semdeslc:8890/sparql",
+        "predicates": [
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "http://interpretme.org/vocab/hasEndpoint"
+        ],
+        "urlparam": "",
+        "wrapperType": "SPARQLEndpoint"
+      }
+    ]
+  },
+  {
+    "rootType": "http://interpretme.org/vocab/SHAPFeatureImportance",
+    "predicates": [
+      {
+        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://www.w3.org/ns/prov#hasGeneratedBy",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasClass",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasFeature",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasRun",
+        "range": [
+          "http://interpretme.org/vocab/PredictionClasses",
+          "http://interpretme.org/vocab/ImportantFeature",
+          "http://www.w3.org/ns/mls#Run",
+          "http://interpretme.org/vocab/CrossValidation",
+          "http://interpretme.org/vocab/SamplingStrategy"
+        ],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      },
+      {
+        "predicate": "http://interpretme.org/vocab/hasSHAPImportance",
+        "range": [],
+        "policies": [
+          {
+            "dataset": "http://kg_semdeslc:8890/sparql",
+            "operator": "PR"
+          }
+        ]
+      }
+    ],
+    "linkedTo": [
+      "http://interpretme.org/vocab/PredictionClasses",
+      "http://interpretme.org/vocab/ImportantFeature",
+      "http://www.w3.org/ns/mls#Run",
+      "http://interpretme.org/vocab/CrossValidation",
+      "http://interpretme.org/vocab/SamplingStrategy"
+    ],
+    "wrappers": [
+      {
+        "url": "http://kg_semdeslc:8890/sparql",
+        "predicates": [
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "http://www.w3.org/ns/prov#hasGeneratedBy",
+          "http://interpretme.org/vocab/hasClass",
+          "http://interpretme.org/vocab/hasFeature",
+          "http://interpretme.org/vocab/hasRun",
+          "http://interpretme.org/vocab/hasSHAPImportance"
+        ],
+        "urlparam": "",
+        "wrapperType": "SPARQLEndpoint"
+      }
+    ]
+  }
+]

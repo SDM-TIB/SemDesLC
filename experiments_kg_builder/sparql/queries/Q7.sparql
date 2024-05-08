@@ -1,0 +1,35 @@
+SELECT DISTINCT ?feature ?value WHERE { 
+  ?entity a <http://semdeslc.org/vocab/TargetEntity> .
+  ?entity <http://semdeslc.org/vocab/hasInterpretedFeature> ?interpretedFeature .
+  ?entity <http://www.w3.org/2002/07/owl#sameAs> ?patient .
+  ?interpretedFeature  <http://semdeslc.org/vocab/hasFeatureWeight> ?featureWeight .
+  ?featureWeight <http://semdeslc.org/vocab/hasFeature> ?feature .
+  ?featureWeight <http://semdeslc.org/vocab/hasWeight> ?value .
+  ?entity <http://semdeslc.org/vocab/hasEntityClassProbability> ?classProb .
+  ?classProb <http://semdeslc.org/vocab/hasPredictionProbability> ?probability .
+  ?classProb <http://semdeslc.org/vocab/hasClass> ?targetClass .
+  ?patient a <http://example.org/lungCancer/vocab/Patient> .
+  ?patient <http://example.org/lungCancer/vocab/hasGender> <http://example.org/lungCancer/entity/Male> .
+  ?patient <http://example.org/lungCancer/vocab/hasAgeCategory> <http://example.org/lungCancer/entity/Old> .
+  ?patient <http://example.org/lungCancer/vocab/hasStage> <http://example.org/lungCancer/entity/IVB> .
+  OPTIONAL {
+    ?patient <http://example.org/lungCancer/vocab/patientSmoking> ?o5 .
+    ?o5 <http://example.org/lungCancer/vocab/hasSmokingHabit> <http://example.org/lungCancer/entity/PreviousSmoker> .
+  }
+  OPTIONAL {
+    ?patient <http://example.org/lungCancer/vocab/patientSmoking> ?o5 .
+    ?o5 <http://example.org/lungCancer/vocab/hasSmokingHabit> <http://example.org/lungCancer/entity/CurrentSmoker> .
+  }
+  OPTIONAL {
+    ?patient <http://example.org/lungCancer/vocab/patientBiomarker> ?o2 .
+    ?o2 <http://example.org/lungCancer/vocab/hasBiomarker> <http://example.org/lungCancer/entity/PDL1> .
+  }
+  OPTIONAL {
+    ?patient <http://example.org/lungCancer/vocab/patientBiomarker> ?o3 .
+    ?o3 <http://example.org/lungCancer/vocab/hasBiomarker> <http://example.org/lungCancer/entity/ROS> .
+  }
+  OPTIONAL {
+    ?patient <http://example.org/lungCancer/vocab/patientTreatmentType> ?o24 .
+    ?o24 <http://example.org/lungCancer/vocab/treatmentType> <http://example.org/lungCancer/entity/Intraveneous_Chemotherapy> .
+  }
+}

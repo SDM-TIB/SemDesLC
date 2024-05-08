@@ -1,0 +1,23 @@
+SELECT DISTINCT ?patient ?stage ?gender ?ageCategory ?biomarker ?relapse_or_progression ?smokingHabit ?treatmentType WHERE {
+  VALUES (?patient) { (<http://example.org/lungCancer/entity/145805_Patient>) }
+  ?patient a <http://example.org/lungCancer/vocab/Patient> .
+  ?patient <http://example.org/lungCancer/vocab/hasStage> ?stage .
+  ?patient <http://example.org/lungCancer/vocab/hasGender> ?gender .
+  ?patient <http://example.org/lungCancer/vocab/hasAgeCategory> ?ageCategory .
+  OPTIONAL {
+    ?patient <http://example.org/lungCancer/vocab/patientBiomarker> ?o1 .
+    ?o1 <http://example.org/lungCancer/vocab/hasBiomarker> ?biomarker .
+  }
+  OPTIONAL {
+    ?patient <http://example.org/lungCancer/vocab/patientRelapseProgression> ?o2 .
+    ?o2 <http://example.org/lungCancer/vocab/hasRelapse_Progression> ?relapse_or_progression .
+  }
+  OPTIONAL {
+    ?patient <http://example.org/lungCancer/vocab/patientSmoking> ?o3 .
+    ?o3 <http://example.org/lungCancer/vocab/hasSmokingHabit> ?smokingHabit .
+  }
+  OPTIONAL {
+    ?patient <http://example.org/lungCancer/vocab/patientTreatmentType> ?o4 .
+    ?o4 <http://example.org/lungCancer/vocab/treatmentType> ?treatmentType .
+  }
+}

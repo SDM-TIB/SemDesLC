@@ -1,0 +1,13 @@
+SELECT DISTINCT ?InterpretableTool ?feature ?value ?targetClass WHERE {
+  ?entity a <http://semdeslc.org/vocab/TargetEntity> .
+  ?entity <http://www.w3.org/2002/07/owl#sameAs> ?sourceEntity .
+  ?entity <http://semdeslc.org/vocab/hasEntity> <http://semdeslc.org/entity/133673_Patient> .
+  ?entity <http://semdeslc.org/vocab/hasInterpretedFeature> ?interpretedFeature .
+  ?interpretedFeature <http://www.w3.org/ns/prov#hasGeneratedBy> ?InterpretableTool .
+  ?interpretedFeature <http://semdeslc.org/vocab/hasFeatureWeight> ?featureWeight .
+  ?entity <http://semdeslc.org/vocab/hasEntityClassProbability> ?classProb .
+  ?classProb <http://semdeslc.org/vocab/hasClass> ?targetClass .
+  FILTER(?targetClass = <http://semdeslc.org/entity/1>)
+  ?featureWeight <http://semdeslc.org/vocab/hasFeature> ?feature .
+  ?featureWeight <http://semdeslc.org/vocab/hasWeight> ?value .
+} ORDER BY DESC(?value)

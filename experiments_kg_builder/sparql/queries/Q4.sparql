@@ -1,0 +1,6 @@
+SELECT DISTINCT  ?o1 (count(distinct ?entity) as ?num) WHERE {
+  ?run <http://semdeslc.org/vocab/hasRun> <http://semdeslc.org/entity/1714130719373> .
+  ?run <http://semdeslc.org/vocab/hasEntity> ?entity .
+  ?run <http://semdeslc.org/vocab/hasClass> <http://semdeslc.org/entity/0> .
+  ?run <http://semdeslc.org/vocab/hasPredictionProbability> ?o1 .
+} GROUP BY ?o1
