@@ -1,0 +1,34 @@
+@prefix lungCancer: <http://example.org/lungCancer/vocab/> .
+@prefix lungCancerS: <http://example.org/lungCancer/shapes/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+lungCancerS:Patient a sh:NodeShape ;
+       sh:targetClass lungCancer:Patient ; 
+       sh:property [sh:path lungCancer:hasGender ; sh:minCount 1; sh:maxCount 1] ;
+       sh:property [sh:path lungCancer:hasAgeCategory ; sh:minCount 1; sh:maxCount 1] ;
+       sh:property [sh:path lungCancer:hasStage ;  sh:minCount 1; sh:maxCount 1] ;
+       sh:property [sh:path lungCancer:hasHistology ;  sh:minCount 1; sh:maxCount 2] ;
+       sh:property [sh:path lungCancer:patientSmoking ; sh:qualifiedValueShape [ sh:node lungCancerS:SmokingHabit ]; sh:qualifiedMinCount 1; sh:qualifiedMaxCount 1] ;
+       sh:property [sh:path lungCancer:patientBiomarker ; sh:qualifiedValueShape [ sh:node lungCancerS:Biomarker ]; sh:qualifiedMinCount 1] ;
+       sh:property [sh:path lungCancer:patientRelapseProgression ; sh:qualifiedValueShape [ sh:node lungCancerS:RelapseProgression ]; sh:qualifiedMaxCount 2] ;
+       sh:property [sh:path lungCancer:patientTreatmentType ; sh:qualifiedValueShape [ sh:node lungCancerS:TreatmentType ]; sh:qualifiedMinCount 1] .
+
+lungCancerS:SmokingHabit a sh:NodeShape ;
+       sh:targetClass lungCancer:SmokingHabit ; 
+       sh:property [sh:path lungCancer:hasSmokingHabit ;  sh:minCount 1; sh:maxCount 1] .
+
+lungCancerS:Biomarker a sh:NodeShape ;
+       sh:targetClass lungCancer:Biomarker ; 
+       sh:property [sh:path lungCancer:hasBiomarker ; sh:minCount 1; sh:maxCount 1] .
+
+lungCancerS:RelapseProgression a sh:NodeShape ;
+       sh:targetClass lungCancer:RelapseProgression ;
+       sh:property [sh:path lungCancer:hasRelapse_Progression ;  sh:minCount 1] .
+
+lungCancerS:TreatmentType a sh:NodeShape ;
+       sh:targetClass lungCancer:TreatmentType ;
+       sh:property [sh:path lungCancer:hasPosition ; sh:minCount 1; sh:maxCount 1] ;
+       sh:property [sh:path lungCancer:treatmentType ; sh:minCount 1; sh:maxCount 1] .
+

@@ -1,0 +1,50 @@
+version: "3.3"
+
+services:
+  kg_lc:
+    container_name: kg_lc
+    image: prohde/virtuoso-opensource-7:7.2.11
+    ports:
+      - "8891:8890"
+    volumes:
+      - ./experiments_kg_builder/nt/LungCancer.nt:/database/toLoad/LungCancer.nt
+    networks:
+      - semdeslc
+    environment:
+      VIRT_PARAMETERS_NUMBEROFBUFFERS: 1360000
+      VIRT_PARAMETERS_MAXDIRTYBUFFERS: 1000000
+
+  kg_semdeslc:
+    container_name: kg_semdeslc
+    image: prohde/virtuoso-opensource-7:7.2.11
+    ports:
+      - "8892:8890"
+    volumes:
+      - ./experiments_kg_builder/nt/SemDesLC.nt:/database/toLoad/SemDesLC.nt
+    networks:
+      - semdeslc
+    environment:
+      VIRT_PARAMETERS_NUMBEROFBUFFERS: 1360000
+      VIRT_PARAMETERS_MAXDIRTYBUFFERS: 1000000
+  
+  streamlit:
+    build: .
+    image: semdeslc:interface
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./images:/app/images
+      - ./SemDesLC/shapes:/app/shapes
+      - ./SemDesLC/interpretme/output:/app/output
+      - ./SemDesLC/interpretme/files:/app/files
+      - ./:/app/example
+    command: ["streamlit", "run", "app.py"]
+    networks:
+      - semdeslc
+    depends_on:
+      - kg_lc
+      - kg_semdeslc
+      
+networks:
+  semdeslc:
+    driver: bridge
