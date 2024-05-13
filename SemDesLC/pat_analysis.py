@@ -150,7 +150,7 @@ def interpretation(file_path1, file_path2, input):
 def lime_interpretation(dict_user):
     pat = dict_user['Patient_ID']
     if pat is not None:
-        path_to_html = f'./output/Lime_{pat}-patient.html'
+        path_to_html = f'./app/files/LIME/Lime_{pat}-patient.html'
     else:
         st.error("Please provide valid Patient ID")
 
@@ -270,7 +270,7 @@ def generate_patient():
     col1, col2 = st.columns([0.1, 0.5])
     # Collect user inputs
     with col1:
-        patient = st.text_input("Enter Patient ID")
+        patient = st.text_input("Enter Patient ID", "Example patient ID:3877")
     # Create a dictionary
     dict_user = {
         "Patient_ID": patient
