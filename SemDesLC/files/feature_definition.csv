@@ -1,0 +1,21 @@
+run_id,features,definition
+1714322978173,EHR,"?EHR a <http://research.tib.eu/lungCancer/vocab/Patient>. 
+ "
+1714322978173,Gender,"?EHR <http://research.tib.eu/lungCancer/vocab/hasGender> ?Gender. 
+ "
+1714322978173,AgeCategory,"?EHR <http://research.tib.eu/lungCancer/vocab/hasAgeCategory> ?AgeCategory. 
+ "
+1714322978173,Stage,"?EHR <http://research.tib.eu/lungCancer/vocab/hasStage> ?Stage. 
+"
+1714322978173,Smoking_habits,"OPTIONAL {?EHR <http://research.tib.eu/lungCancer/vocab/patientSmoking> ?o. ?o <http://research.tib.eu/lungCancer/vocab/hasSmokingHabit> ?Smoking_habits }. 
+"
+1714322978173,Biomarker,"OPTIONAL{?EHR <http://research.tib.eu/lungCancer/vocab/patientBiomarker> ?o1. ?o1 <http://research.tib.eu/lungCancer/vocab/hasBiomarker> ?Biomarker }. 
+"
+1714322978173,DrugTreatment,"OPTIONAL{?EHR <http://research.tib.eu/lungCancer/vocab/patientDrug> ?o3. ?o3 <http://research.tib.eu/lungCancer/vocab/hasDrugTreatment> ?DrugTreatment }. 
+"
+1714322978173,TreatmentType,"OPTIONAL{?EHR <http://research.tib.eu/lungCancer/vocab/patientTreatmentType> ?o4. ?o4 <http://research.tib.eu/lungCancer/vocab/treatmentType> ?TreatmentType }. 
+"
+1714322978173,TreatmentPosition,"?EHR <http://research.tib.eu/lungCancer/vocab/patientTreatmentType> ?o4. ?o4 <http://research.tib.eu/lungCancer/vocab/hasPosition> ?TreatmentPosition. 
+"
+1714322978173,Relapse,"?EHR <http://research.tib.eu/lungCancer/vocab/patientRelapseProgression> ?o2. ?o2 <http://research.tib.eu/lungCancer/vocab/hasRelapse_Progression> ?Rel. BIND(IF(?Rel IN(<http://research.tib.eu/lungCancer/entity/Relapse>,<http://research.tib.eu/lungCancer/entity/Progression>),'Relapse', 'No_relapse') as ?Relapse). 
+"

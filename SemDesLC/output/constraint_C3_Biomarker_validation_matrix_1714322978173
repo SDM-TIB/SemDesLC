@@ -1,0 +1,52 @@
+
+    graph G {
+        splines=line;
+        fontname="Helvetica"
+        node [fontname="Helvetica"]
+        edge [fontname="Helvetica"]
+        layout=dot
+        label=""
+        labelloc="t"
+        rankdir="LR"
+
+        subgraph cluster_validation_results {
+        color=lightgrey;
+        label="Confusion Matrix Decomposition";
+        confusion_matrix_not_applicable [margin="0" shape=box penwidth="0" color="#444443" label=<<table border="0" CELLBORDER="0">
+        <tr><td CELLPADDING="0" CELLSPACING="0"><font face="Helvetica" color="#444443" point-size="12"><i>Not applicable</i></font></td></tr>
+        <tr>
+                <td><img src="/tmp/confusion_matrix_not_applicable_7.svg"/></td>
+        </tr>
+        </table>>]
+	confusion_matrix_invalid [margin="0" shape=box penwidth="0" color="#444443" label=<<table border="0" CELLBORDER="0">
+        <tr><td CELLPADDING="0" CELLSPACING="0"><font face="Helvetica" color="#444443" point-size="12"><i>Invalid</i></font></td></tr>
+        <tr>
+                <td><img src="/tmp/confusion_matrix_invalid_7.svg"/></td>
+        </tr>
+        </table>>]
+	confusion_matrix_valid [margin="0" shape=box penwidth="0" color="#444443" label=<<table border="0" CELLBORDER="0">
+        <tr><td CELLPADDING="0" CELLSPACING="0"><font face="Helvetica" color="#444443" point-size="12"><i>Valid</i></font></td></tr>
+        <tr>
+                <td><img src="/tmp/confusion_matrix_valid_7.svg"/></td>
+        </tr>
+        </table>>]
+	confusion_matrix [margin="0" shape=box penwidth="0" color="#444443" label=<<table border="0" CELLBORDER="0">
+        <tr><td CELLPADDING="0" CELLSPACING="0"><font face="Helvetica" color="#444443" point-size="12"><i>Confusion Matrix</i></font></td></tr>
+        <tr>
+                <td><img src="/tmp/confusion_matrix_7.svg"/></td>
+        </tr>
+        </table>>]
+    }
+    
+
+        confusion_matrix -- confusion_matrix_valid
+	confusion_matrix -- confusion_matrix_invalid
+	confusion_matrix -- confusion_matrix_not_applicable
+
+        edge [style=invis]
+
+        
+        
+
+    }
+    

@@ -41,6 +41,8 @@ services:
       - ./images:/app/images
       - ./SemDesLC/shapes:/app/shapes
       - ./SemDesLC/rules:/app/rules
+      - ./SemDesLC/files:/app/files
+      - ./SemDesLC/output:/app/files
       - ./:/app/example
     command: ["streamlit", "run", "app.py"]
     networks:

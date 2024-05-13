@@ -1,0 +1,10 @@
+run_id,hyperparameters_name,hyperparameters_value,model,accuracy
+1714322978173,classifier,DecisionTreeClassifier,DecisionTreeClassifier,0.7524084778420038
+1714322978173,random_state,123,DecisionTreeClassifier,0.7524084778420038
+1714322978173,min_samples_split,2,DecisionTreeClassifier,0.7524084778420038
+1714322978173,min_samples_leaf,1,DecisionTreeClassifier,0.7524084778420038
+1714322978173,min_weight_fraction_leaf,0.0,DecisionTreeClassifier,0.7524084778420038
+1714322978173,ccp_alpha,0.0,DecisionTreeClassifier,0.7524084778420038
+1714322978173,criterion,gini,DecisionTreeClassifier,0.7524084778420038
+1714322978173,splitter,best,DecisionTreeClassifier,0.7524084778420038
+1714322978173,max_depth,6,DecisionTreeClassifier,0.7524084778420038
