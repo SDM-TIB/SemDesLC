@@ -3,6 +3,7 @@
 DOCKER_MYSQL="mysql"
 DOCKER_RDFIZER="sdmrdfizer"
 
+docker build -f ./morph-kgc/Dockerfile -t morph-kgc --build-arg optional_dependencies="mysql" .
 docker-compose down > /dev/null 2> /dev/null
 docker-compose up -d $DOCKER_MYSQL $DOCKER_KG_SEMDESLC > /dev/null 2> /dev/null
 sleep 60s # give some time to MySQL server to be responsive
@@ -25,7 +26,7 @@ echo "Morph-KGC"
 for (( i=1; i<=$num_executions; i++ ))
 do
     echo "Execution $i:"
-    { time docker run -it --name morph-kgc_interpretme --network experiments_docker_file_experiment  -v $(pwd)/morph-kgc:/app/files eiglesias34/morph-kgc:latest files/morph.ini; } 2>&1 | grep real | awk '{print $2}' >> time_output.txt
+    { time docker run -it --name morph-kgc_interpretme --network experiments_docker_file_experiment  -v $(pwd)/morph-kgc:/app/files morph-kgc files/morph.ini; } 2>&1 | grep real | awk '{print $2}' >> time_output.txt
     echo "-------------------------------------"
     docker rm morph-kgc_interpretme
 done
@@ -56,7 +57,7 @@ echo "Morph-KGC"
 for (( i=1; i<=$num_executions; i++ ))
 do
     echo "Execution $i:"
-    docker run -i --name morph-kgc_interpretme --network experiments_docker_file_experiment  -v $(pwd)/morph-kgc:/app/files eiglesias34/morph-kgc:latest files/morph.ini & sleep 5 && docker stats --no-stream morph-kgc_interpretme --format "{{.MemUsage}}" | awk '{print $1}'  >> memory_output.txt & wait && docker rm morph-kgc_interpretme
+    docker run -i --name morph-kgc_interpretme --network experiments_docker_file_experiment  -v $(pwd)/morph-kgc:/app/files morph-kgc files/morph.ini & sleep 5 && docker stats --no-stream morph-kgc_interpretme --format "{{.MemUsage}}" | awk '{print $1}'  >> memory_output.txt & wait && docker rm morph-kgc_interpretme
     echo "-------------------------------------"
 done
 
