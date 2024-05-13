@@ -13,11 +13,14 @@
 ### Bash Commands
 The experiment scripts use the following bash commands:
 
+- awk
 - chown
 - echo
+- grep
 - logname
 - sed
 - sleep
+- time
 
 ## Experiments
 In order to facilitate the reproduction of the results, all components are encapsulated in Docker containers and the experiments are controlled via Shell scripts.
@@ -30,6 +33,7 @@ In the following, the different scripts are described in short.
 
 - _00_auto.sh_: Executes the entire experiment automatically
 - _01_prepare_environment.sh_: Prepares the experimental environment, i.e., sets up the Docker containers
+- _02_experiment_kg_creation.sh_: Executes the experiments for KG Creation
 - _03_experiment_validation.sh_: Executes the experiments for KG Validation
 - _04_experiment_querying.sh_: Executes the experiments for Federated Query Evaluation
 - _05_plots.sh_: Creates the plots presented in the paper
