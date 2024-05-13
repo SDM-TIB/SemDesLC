@@ -150,7 +150,7 @@ def interpretation(file_path1, file_path2, input):
 def lime_interpretation(dict_user):
     pat = dict_user['Patient_ID']
     if pat is not None:
-        path_to_html = f'./app/files/LIME/Lime_{pat}-patient.html'
+        path_to_html = f'/app/files/LIME/Lime_{pat}-patient.html'
     else:
         st.error("Please provide valid Patient ID")
 
@@ -222,8 +222,8 @@ def gen_graph(df):
 
 def main(my_dict):
     dataframe = query_generation(my_dict, "http://kg_lc:8890/sparql")
-    exp = interpretation('./app/files/lime_interpretation_features.csv',
-                         './app/files/predicition_probabilities.csv', my_dict)
+    exp = interpretation('/app/files/lime_interpretation_features.csv',
+                         '/app/files/predicition_probabilities.csv', my_dict)
     return dataframe, exp
 
 
@@ -265,12 +265,12 @@ def ChangeButtonColour(widget_label, font_color, hover_color, background_color='
 
 
 def generate_patient():
-    #st.title("Patient-Centric Analysis 👨‍⚕️👩‍⚕️")
+    #st.title("Patient-centric Analysis 👨‍⚕️👩‍⚕️")
     button_width = 176
     col1, col2 = st.columns([0.1, 0.5])
     # Collect user inputs
     with col1:
-        patient = st.text_input("Enter Patient ID", "Example patient ID:3877")
+        patient = st.text_input("Enter Patient ID", "3877")
     # Create a dictionary
     dict_user = {
         "Patient_ID": patient
