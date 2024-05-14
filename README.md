@@ -17,15 +17,15 @@ If you don't have Docker (and docker-compose) installed. Please, follow the inst
   * Windows: [https://docs.docker.com/docker-for-windows/install/](https://docs.docker.com/docker-for-windows/install/)
   * Mac: [https://docs.docker.com/docker-for-mac/install/](https://docs.docker.com/docker-for-mac/install/)
 
-### Results for KG builder
+### KG Builder
 Navigate to the directory and follow the README inside the directory to execute necessary scripts
 ```bash
  cd experiments_kg_builder/
 ```
-### Results for KG analysts
+### KG Analysts and KG Consumers
 To get started, you need to start the containers:
 ```bash 
-docker-compose up -d
+docker-compose up -d --build
 ```
 Then navigate to [`http://localhost:8501/`](http://localhost:8501/). This will start the interface, for the predictive task of relapse likelihood. Login credentials to access the interface are: `Username`: `user123` and `Password`: `roger` (`Note: click twice on login button`).
 Interface includes three components Train, Deduce and Explain. 
